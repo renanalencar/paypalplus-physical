@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Payments</title>
+
+    <link rel="stylesheet" type="text/css" href="./Shop_files/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./Shop_files/shop.css">
+</head>
+<body id="debug">
+
+<div style="display: none;" id="paypal-config"></div>
+
+<div class="container">
+
+<h1 class="page-header">
+  Pay with card</h1>
+
+    
+<div class="row">
+
+
+<form role="form" method="post" action="ppp.php" class="form-horizontal" name="adjustConfiguration">
+<div class="form-group pull-right">
+    <button type="submit" class="btn btn-primary">Go to checkout</button>
+</div>
+
+
+
+<div class="row">
+<div class="col-md-12">
+
+
+
+<div class="form-group">
+    <label for="cfgitem-itemName" class="col-sm-3 control-label">Product</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-itemName" name="itemName" value="">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="cfgitem-itemDescription" class="col-sm-3 control-label">Description</label>
+    <div class="col-sm-7"> 
+
+
+        <input type="text" class="form-control" id="cfgitem-itemDescription" name="itemDescription" value="">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="cfgitem-itemSku" class="col-sm-3 control-label">Reference</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-itemSku" name="itemSku" value="">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="cfgitem-itemPrice" class="col-sm-3 control-label">Price</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-itemPrice" name="itemPrice" value="500">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="cfgitem-itemQuantity" class="col-sm-3 control-label">Quantity</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-itemQuantity" name="itemQuantity" value="1">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="cfgitem-payerEmail" class="col-sm-3 control-label">E-mail</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-payerEmail" name="payerEmail" value="">
+    </div>
+</div>
+<div class="form-group">
+    <label for="cfgitem-payerPhone" class="col-sm-3 control-label">Phone</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-payerPhone" name="payerPhone" value="">
+    </div>
+</div>
+<div class="form-group">
+    <label for="cfgitem-payerFirstName" class="col-sm-3 control-label">Name</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-payerFirstName" name="payerFirstName" value="">
+    </div>
+
+</div>
+<div class="form-group">
+    <label for="cfgitem-payerLastName" class="col-sm-3 control-label">Last Name</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-payerLastName" name="payerLastName" value="">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="cfgitem-shippingAddressStreet1" class="col-sm-3 control-label">Address Line 1</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-shippingAddressStreet1" name="shippingAddressStreet1" value="Mariano Escobedo 476">
+    </div>
+</div>
+<div class="form-group">
+    <label for="cfgitem-shippingAddressStreet2" class="col-sm-3 control-label">Address Line 2</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-shippingAddressStreet2" name="shippingAddressStreet2" value="Piso 14">
+    </div>
+</div>
+<div class="form-group">
+    <label for="cfgitem-shippingAddressPostal" class="col-sm-3 control-label">ZIP Code</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-shippingAddressPostal" name="shippingAddressPostal" value="11590">
+    </div>
+</div>
+<div class="form-group">
+    <label for="cfgitem-shippingAddressCity" class="col-sm-3 control-label">City</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-shippingAddressCity" name="shippingAddressCity" value="Miguel Hidalgo">
+    </div>
+</div>
+<div class="form-group">
+    <label for="cfgitem-shippingAddressCountry" class="col-sm-3 control-label">Country</label>  
+    <div class="col-sm-7">
+    <select class="form-control" id="cfgitem-shippingAddressCountry" name="shippingAddressCountry">
+        <option value="MX" selected="">México</option>
+        <option value="US">United States</option>
+    </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="cfgitem-shippingAddressState" class="col-sm-3 control-label">State</label>
+    <div class="col-sm-7">
+
+
+        <input type="text" class="form-control" id="cfgitem-shippingAddressState" name="shippingAddressState" value="Distrito Federal">
+    </div>
+</div>
+
+
+</div>
+
+<div class="form-group">
+    <label for="cfgitem-currency" class="col-sm-3 control-label">Currency</label>
+    <div class="col-sm-7">
+
+    <select class="form-control" id="cfgitem-currency" name="currency">
+        <option value="MXN">Peso Mexicano (MXN)</option>
+        <option value="USD" selected="">US Dollar (USD)</option>       
+    </select>
+    </div>
+
+</div>
+
+<div class="form-group pull-right">
+    <button type="submit" class="btn btn-primary">Go to checkout</button>
+</div>
+
+</form>
+
+</div>
+</div>
+
+
+<script src="./Shop_files/jquery.min.js"></script>
+<script>
+$("#debug").on("click", function (e) {
+    $('.open').toggleClass('open closed');
+});
+$("#sessionInfo").on("click", function (e) {
+    e.stopPropagation();
+});
+$("#sessionInfoDrawer").on("click", function (e) {
+    e.stopPropagation();
+    $(this).toggleClass('closed open');
+});
+</script>
+<script src="./Shop_files/bootstrap.min.js"></script>
+<script src="./Shop_files/sample_shop.js"></script>
+
+
+
+</div></body></html>
