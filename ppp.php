@@ -22,11 +22,11 @@ $shippingAddressState=$_REQUEST['shippingAddressState'];
 $disallowRememberedCards='true';
 $rememberedCards='';
 $paypalMode='sandbox';
-$clientId= 'AdLP7TfHOHls5OU6jM-hxJtfJCJLF599FsAhkpCrkhKw5FOKNa1PrCJ8cbiyNurH97bM4T7Tf5OL5c_v';
-$secret='EBoFU50fW9Bd0-VM0eDMihyDMlt-fyxrGzOcjKspOF_dcYYz2DwJYoStqM8mCcA1yESJjZSB5il4WwWl';
+$clientId= 'ATq8WIoO-jT0S2njs1a6VdStorN12BydaApeZ6W5ZJ6k3cA0eAnt_ps1mrlB66YTVKoHyDhqDioJpX3e';
+$secret='EEKVUBKnYLh15fux7e0RgGE2jQa9Dg81G5T-BGqzbLXyc8P-njfnIELpKT_slxhQIuDth8jYe9l6RKZ2';
 $returnUrl='http://noviamiaphotography.com/plus7/ppp.php';
 $cancelUrl='http://noviamiaphotography.com/plus7/ppp.php';
-$ppplusJsLibraryLang='en_US';
+$ppplusJsLibraryLang='pt_BR';
 $currency=$_REQUEST['currency'];
 $iframeHeight='';
 $merchantInstallmentSelection='1';
@@ -125,7 +125,7 @@ $json_resp = stripslashes(json_format($json_resp));
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Checkout</title>
+    <title>Caixa</title>
 
     <link rel="stylesheet" type="text/css"
         href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
@@ -188,7 +188,7 @@ $json_resp = stripslashes(json_format($json_resp));
 
     <div class="container">
 
-    <h1 class="page-header">Payments</h1>
+    <h1 class="page-header">Pagamentos</h1>
 
         <div class="row" style="">
 
@@ -214,14 +214,14 @@ $json_resp = stripslashes(json_format($json_resp));
             </div>
             <div class="col-md-6">
 
-                <h2>Details</h2>
+                <h2>Detalhes</h2>
 
                 <div class="form-group" id="shipping-address-group">
                     <table class="table table-striped">
                         <tr>
-                            <td>Product</td>
-                            <td>Quantity</td>
-                            <td>Price</td>
+                            <td>Produto</td>
+                            <td>Quantidade</td>
+                            <td>Preço</td>
                         </tr>
 
                             <tr>
@@ -234,47 +234,47 @@ $json_resp = stripslashes(json_format($json_resp));
                 </div>
 
                 <div class="form-group" id="shipping-address-group">
-                    <label class="control-label">Datos del cliente</label>
+                    <label class="control-label">Dados do cliente</label>
                     <table class="table table-striped">
                         <tr>
-                            <td>Name:</td>
+                            <td>Nome:</td>
                             <td><?php echo $payerFirstName ." " . $payerLastName ?></td>
                         </tr>
                         <tr>
-                            <td>Address Line 1:</td>
+                            <td>Endereço:</td>
                             <td><?php echo $shippingAddressStreet1 ?></td>
                         </tr>
                         <tr>
-                            <td>Address Line 2:</td>
+                            <td>Complemento:</td>
                             <td><?php echo $shippingAddressStreet2 ?></td>
                         </tr>
                         <tr>
-                            <td>ZIP Code:</td>
+                            <td>CEP:</td>
                             <td><?php echo $shippingAddressPostal ?></td>
                         </tr>
                         <tr>
-                            <td>City:</td>
+                            <td>Cidade:</td>
                             <td><?php echo $shippingAddressCity ?></td>
                         </tr>
                         <tr>
-                            <td>State:</td>
+                            <td>Estado:</td>
                             <td><?php echo $shippingAddressState ?></td>
                         </tr>
                         <tr>
-                            <td>Country:</td>
+                            <td>País:</td>
                             <td><?php echo $shippingAddressCountry ?></td>
                         </tr>
                     </table>
                 </div>
                 <br/>
-                <p><strong>Click to continue:</strong></p>
+                <p><strong>Clique para continuar:</strong></p>
                 <button
                   type="submit"
                   id="continueButton"
                   class="btn btn-lg btn-primary btn-block infamous-continue-button"
                   onclick="ppp.doContinue(); return false;">
                     
-                    Continue
+                    Continuar
                 </button>
             </div><!-- col -->
             </form>
@@ -321,6 +321,7 @@ $json_resp = stripslashes(json_format($json_resp));
         },
 
         language: "<?php echo $ppplusJsLibraryLang; ?>",
+        country: "<?php echo $shippingAddressCountry; ?>",
         disallowRememberedCards: "<?php echo $disallowRememberedCards; ?>",
         rememberedCards: "<?php echo $rememberedCards; ?>",
         mode: "<?php echo $paypalMode; ?>",
