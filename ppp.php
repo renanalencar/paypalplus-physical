@@ -3,6 +3,98 @@
 require_once("functions.php");
 header('content-type: text/html; charset: utf-8');
 
+# CSS EXAMPLE
+$css_example='{
+    "psp": {
+    "font-family": "Times New Roman",
+    "color": "green",
+    "font-size": "14px",
+    "font-style": "italic"
+    },
+    "link": {
+    "color": "red",
+    "text-decoration": "underline"
+    },
+    "visited": {
+    "color": "green",
+    "text-decoration": "underline"
+    },
+    "active": {
+    "color": "yellow",
+    "text-decoration": "underline"
+    },
+    "hover": {
+    "color": "rgb(100,66,200)",
+    "text-decoration": "underline"
+    }}';
+
+# Get Custom Style for Payment Wall
+$css='{
+    "pppTextInput": {
+        "background-color": "#f2f2f2",
+        "color": "rgb(80, 80, 80)",
+        "border-color": "#bbc",
+        "border-width": "1px",
+        "font-size": "15px",
+        "font-family": "Arial",
+        "font-style": "normal"
+    },
+    "pppDropdown": {
+        "background-color": "#f2f2f2",
+        "color": "rgb(80, 80, 80)",
+        "border-color": "#bbc",
+        "border-width": "1px",
+        "font-size": "15px",
+        "font-family": "Arial",
+        "font-style": "normal"
+    },
+    "pppDropdownHover": {
+        "background-color": "#f2f2f2",
+        "color": "rgb(80, 80, 80)",
+        "border-color": "#bbc",
+        "border-width": "1px",
+        "font-size": "15px",
+        "font-family": "Arial",
+        "font-style": "normal"
+    },
+    "pppDropdownMenu": {
+        "background-color": "#fff",
+        "color": "#505050",
+        "font-size": "15px",
+        "min-width": "0px"
+    },
+    "pppLabel": {
+        "color": "#505050",
+        "font-size": "15px",
+        "font-family": "Arial",
+        "font-style": "italic"
+    },
+    "pppPrivacyPolicyLabel": {
+        "color": "#505050",
+        "font-size": "14px",
+        "font-family": "Arial",
+        "font-style": "italic"
+    },
+    "pppCheckboxLabel": {
+        "color": "#505050",
+        "font-size": "13px",
+        "font-family": "Arial",
+        "font-style": "italic"
+    },
+    "pppAlertMessage": {
+        "background-color": "#ccc",
+        "color": "rgb(255, 0, 0)",
+        "border-color": "#700",
+        "border-width": "1px",
+        "font-size": "13px",
+        "font-family": "Arial",
+        "font-style": "normal"
+    },
+    "pppErrorFields": {
+        "border-color": "#d00"
+    }
+}';
+
 # Get form data
 $itemName=$_REQUEST['itemName'];
 $itemDescription=$_REQUEST['itemDescription'];
@@ -29,8 +121,12 @@ $cancelUrl='http://noviamiaphotography.com/plus7/ppp.php';
 $ppplusJsLibraryLang='pt_BR';
 $currency=$_REQUEST['currency'];
 $iframeHeight='';
-$merchantInstallmentSelection='1';
+$merchantInstallmentSelection='0';
 $merchantInstallmentSelectionOptional='true';
+
+# GET BRAZIL SETTINGS
+$payerTaxId=$_REQUEST['payerTaxId'];
+
 
 $total = number_format($itemPrice * $itemQuantity,2);
 
@@ -125,7 +221,7 @@ $json_resp = stripslashes(json_format($json_resp));
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Caixa</title>
+    <title>Checkout</title>
 
     <link rel="stylesheet" type="text/css"
         href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
@@ -241,6 +337,10 @@ $json_resp = stripslashes(json_format($json_resp));
                             <td><?php echo $payerFirstName ." " . $payerLastName ?></td>
                         </tr>
                         <tr>
+                            <td>CPF:</td>
+                            <td><?php echo $payerTaxId ?></td>
+                        </tr>
+                        <tr>
                             <td>Endereço:</td>
                             <td><?php echo $shippingAddressStreet1 ?></td>
                         </tr>
@@ -326,12 +426,13 @@ $json_resp = stripslashes(json_format($json_resp));
         rememberedCards: "<?php echo $rememberedCards; ?>",
         mode: "<?php echo $paypalMode; ?>",
         useraction: "continue",
+        css:<?php echo $css; ?>,
         payerEmail: "<?php echo $payerEmail; ?>",
         payerPhone: "<?php echo $payerPhone; ?>",
         payerFirstName: "<?php echo $payerFirstName; ?>",
         payerLastName: "<?php echo $payerLastName; ?>",
-        payerTaxId: "",
-        payerTaxIdType: "",
+        payerTaxId: "<?php echo $payerTaxId; ?>",
+        payerTaxIdType: "<?php echo $payerTaxIdType; ?>",
         merchantInstallmentSelection: "<?php echo $merchantInstallmentSelection; ?>",
         merchantInstallmentSelectionOptional:"<?php echo $merchantInstallmentSelectionOptional; ?>",
         hideMxDebitCards: false,

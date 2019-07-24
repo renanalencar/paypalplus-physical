@@ -84,13 +84,13 @@ $sale_id = $event_json->transactions[0]->related_resources[0]->sale->id;
 <body>
 <div>
     <div class="col-md-12">
-    <h1>Your payment has been processed. Thank You!
+    <h1>Seu pagamento foi processado. Obrigado!
     </h1>
     <br>
-    <h2><a href="index.html">Go back</a>
+    <h2><a href="index.html">Voltar</a>
     </h2>
     <br>
-    <h3>Transaction ID
+    <h3>ID de transação
     </h3>
     <pre class="json-data"><?php echo $sale_id;?></pre>
 
